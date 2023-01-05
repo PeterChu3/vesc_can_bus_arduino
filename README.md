@@ -17,8 +17,9 @@ The MCP2515 is the most common way to integrate can bus onto the arduino platfor
 | dutycycle |
 |  current  |
 
-To use the library out of the box, the vesc tool must be configured as shown in images/vesc_tool_app_settings.png.
-CAN Baud Rate = CAN_BAUD_500K
+To be able to communiate over CAN using this library, make sure the underlined reliavent settings matches.
+
+![image](https://github.com/peterchu3/vesc_can_bus_arduino/blob/main/images/CanConfig.jpg?raw=true "Header")
 
 # Credits
 
