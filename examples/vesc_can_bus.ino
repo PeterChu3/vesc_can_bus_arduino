@@ -20,7 +20,7 @@ void loop()
 {
     can.spin();
 
-    can.vesc_set_current(2); //2 amps of current
+    //can.vesc_set_current(2); //2 amps of current
 
     if (print_realtime_data == true)
     {
