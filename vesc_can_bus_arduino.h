@@ -11,7 +11,7 @@ public:
     unsigned char rxBuf[8];
     char msgString[128]; // Array to store serial string
 
-    float inpVoltage, dutyCycleNow, avgInputCurrent, avgMotorCurrent, tempFET, tempMotor;
+    float inpVoltage, dutyCycleNow, avgInputCurrent, avgMotorCurrent, tempFET, tempMotor, adc1, adc2, adc3, ppm;
     int32_t erpm;
 
     void initialize();

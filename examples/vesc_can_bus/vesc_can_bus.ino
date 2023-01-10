@@ -6,7 +6,7 @@ CAN can; // get torque sensor data, throttle for now
 bool print_realtime_data;
 long last_print_data;
 
-void setup_()
+void setup()
 {
 
     Serial.begin(115200); // Wired comms from USB port

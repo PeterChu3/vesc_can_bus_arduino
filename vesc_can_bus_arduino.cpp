@@ -48,15 +48,23 @@ void CAN::spin()
       sprintf(receivedByte, "%02X%02X", rxBuf[4], rxBuf[5]);
       inpVoltage = hex2int(receivedByte) * 0.1;
     }
-  */
+*/
   if (rxId == 0x80003A0A)
   { // Can status message 6
-    // TODO reimpliment code
-    Serial.print("Received message: ");
-    Serial.println(rxId, HEX);
-    char receivedByte[4], *p;
-    sprintf(receivedByte, "%02X%02X", rxBuf[4], rxBuf[5]);
-    inpVoltage = hex2int(receivedByte) * 0.1;
+    // ADC1, ADC2, ADC3, PPM
+    int32_t send_index = 0;
+    adc1 = process_data_frame_vesc('D', rxBuf[0], rxBuf[1]);
+    adc2 = buffer_get_float16(rxBuf[2], 1000, 0);
+    adc3 = buffer_get_float16(rxBuf[4], 1000, 0);
+    ppm = buffer_get_float16(rxBuf[6], 1000, 0);
+    Serial.print("ADC1: ");
+    Serial.print(adc1);
+    Serial.print("\t ADC2: ");
+    Serial.print(adc2);
+    Serial.print("\t ADC3: ");
+    Serial.print(adc3);
+    Serial.print("\t PPM: ");
+    Serial.println(ppm);
   }
 
   // print_raw_can_data() // uncomment to see raw can messages
